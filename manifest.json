@@ -1,0 +1,11 @@
+{
+	"id": "loom-git-sync",
+	"name": "Loom - Real-time Git Sync",
+	"version": "1.0.0",
+	"minAppVersion": "0.15.0",
+	"description": "Automatically sync your Obsidian vault with Git repositories in real-time",
+	"author": "Somnath",
+	"authorUrl": "",
+	"fundingUrl": "",
+	"isDesktopOnly": false
+}
