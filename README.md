@@ -33,10 +33,9 @@ A lightweight Obsidian plugin that automatically synchronizes your vault with Gi
 ### Plugin Settings Panel
 ![Settings Panel](screenshots/Screenshot%202025-08-08%20053935.png)
 
-### Status Bar Integration
 ![Status Bar](screenshots/Screenshot%202025-08-08%20053943.png)
 
-### Plugin in Action
+### Status Bar Integratio
 ![Plugin Interface](screenshots/Screenshot%202025-08-08%20053958.png)
 
 ## �📦 Installation
