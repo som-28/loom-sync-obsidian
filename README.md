@@ -1,190 +1,149 @@
 # Loom Git Sync - Obsidian Plugin
 
-Automatically sync your Obsidian vault with Git repositories in real-time. This plugin replaces the need for a separate 103MB Electron application with a lightweight, native Obsidian solution.
+🚀 Real-time Git synchronization for Obsidian - Automatically sync your vault changes to GitHub with smart file watching.
 
-## 🌟 Features
+A lightweight Obsidian plugin that automatically synchronizes your vault with Git repositories in real-time. Say goodbye to heavy 103MB Electron applications and enjoy seamless, native Git integration.
 
-### Real-time Synchronization
-- **Automatic file watching**: Monitor all file changes in your vault (create, modify, delete, rename)
-- **Smart debouncing**: Avoid excessive commits with configurable delay (default 500ms)
-- **Intelligent commit messages**: Automatically generated meaningful commit messages
+## ✨ Features
+
+### 🔄 Real-time Synchronization
+- **Automatic file watching**: Monitors all file changes in your vault (create, modify, delete, rename)
+- **Smart debouncing**: Configurable delay to avoid excessive commits (default 500ms)
+- **Auto-commit and push**: Automatically commits changes and pushes to your GitHub repository
 - **Background syncing**: Non-blocking operations that don't interfere with your workflow
 
-### Git Integration
-- **Full Git support**: Initialize repositories, commit, push, pull operations
-- **Remote repository support**: Works with GitHub, GitLab, Bitbucket, and custom Git servers
-- **Branch management**: Support for multiple branches and branch switching
-- **Conflict detection**: Basic merge conflict detection and user notification
-- **Authentication**: Support for both SSH and HTTPS authentication methods
+### 🎯 Smart File Management
+- **File exclusion patterns**: Configure which files to ignore during sync
+- **Multi-file type support**: Handles Markdown, images, PDFs, and other attachments
 
-### User Interface
-- **Status bar integration**: Real-time sync status with clickable indicator
-- **Sync panel**: Comprehensive overview of repository status, recent commits, and statistics
-- **Settings panel**: Complete configuration interface with real-time validation
-- **Command palette**: Quick access to all sync operations
-- **Toast notifications**: Optional non-intrusive status updates
+### 🖥️ User Interface
+- **Status bar integration**: Real-time sync status with visual indicators
+- **Settings panel**: Easy configuration with all available options
+- **Toast notifications**: Optional status updates for sync operations
+- **Command palette integration**: Quick access to manual sync and settings
 
-### File Management
-- **Smart exclusions**: Configurable patterns to exclude temporary and system files
-- **Multi-file type support**: Handles Markdown, Canvas, Excalidraw, attachments, and more
-- **Rename tracking**: Properly handles file renames as Git operations
-- **Large file warnings**: Optional Git LFS integration recommendations
+### ⚙️ Configuration Options
+- **Remote repository URL**: Connect to your GitHub repository
+- **Custom commit messages**: Template-based commit message generation
+- **Sync preferences**: Enable/disable auto-sync, notifications, and file watching
+- **Debounce timing**: Adjust delay between file changes and sync operations
 
 ## 📦 Installation
 
-### Community Plugins (Recommended)
-1. Open Obsidian Settings
-2. Navigate to Community Plugins
-3. Search for "Loom Git Sync"
-4. Install and enable the plugin
+### Step-by-Step Manual Installation
 
-### Manual Installation
-1. Download the latest release from GitHub
-2. Extract the files to `VaultFolder/.obsidian/plugins/loom-git-sync/`
-3. Reload Obsidian and enable the plugin
+Since this plugin is not yet available in the Community Plugins store, you'll need to install it manually. Follow these detailed steps:
+
+#### Step 1: Download Plugin Files
+1. Download or copy these three essential files from the plugin repository:
+   - `main.js` (the main plugin code)
+   - `manifest.json` (plugin metadata)
+   - `styles.css` (plugin styling)
+
+#### Step 2: Locate Your Obsidian Vault
+1. Open your Obsidian vault in File Explorer/Finder
+2. Navigate to your vault's root directory (where your notes are stored)
+
+#### Step 3: Access the Plugins Directory
+1. Look for a folder named `.obsidian` in your vault directory
+   - **If you don't see it**: This folder might be hidden. Enable "Show hidden files" in your file manager
+   - **If it doesn't exist**: Open Obsidian, go to Settings → Community Plugins, and turn on "Community plugins" first. This will create the necessary folders.
+
+2. Inside `.obsidian`, look for a `plugins` folder
+   - **If it doesn't exist**: Create a new folder named `plugins`
+
+#### Step 4: Create Plugin Directory
+1. Inside the `plugins` folder, create a new folder named exactly: `loom-git-sync`
+2. Your path should now look like: `YourVault/.obsidian/plugins/loom-git-sync/`
+
+#### Step 5: Copy Plugin Files
+1. Copy the three plugin files (`main.js`, `manifest.json`, `styles.css`) into the `loom-git-sync` folder
+2. Your final directory structure should be:
+   ```
+   YourVault/
+   ├── .obsidian/
+   │   └── plugins/
+   │       └── loom-git-sync/
+   │           ├── main.js
+   │           ├── manifest.json
+   │           └── styles.css
+   └── (your notes and other files)
+   ```
+
+#### Step 6: Enable the Plugin
+1. **Restart Obsidian** or reload the app
+2. Go to **Settings** → **Community Plugins**
+3. You should see "Loom - Real-time Git Sync" in your installed plugins list
+4. **Toggle it ON** to enable the plugin
+5. The plugin should now be active and ready to configure
+
+#### Verification
+- Check if you see a sync status indicator in your status bar (bottom of Obsidian)
+- Try accessing the plugin settings: Settings → Community Plugins → Loom - Real-time Git Sync → Settings icon
 
 ## 🚀 Quick Start
 
-### First-Time Setup
 1. **Enable the plugin** in Obsidian's Community Plugins settings
-2. **Configure Git credentials** in the plugin settings:
-   - Set your Git username and email
-   - Choose authentication method (SSH or HTTPS)
-3. **Initialize repository**:
-   - Use Command Palette: `Loom: Initialize Git repository`
-   - Or click the button in the sync panel
-4. **Add remote repository** (optional):
-   - Enter your repository URL in settings
-   - Test the connection using the "Test" button
+2. **Configure your GitHub repository**:
+   - Go to plugin settings
+   - Enter your repository URL (e.g., `https://github.com/username/your-repo.git`)
+3. **Initialize Git in your vault** (if not already done):
+   - The plugin will automatically set up Git in your vault directory
+   - Creates a `.gitignore` file with sensible defaults
+4. **Start syncing**: Changes will automatically sync when you modify files
 
-### Basic Usage
-- **Auto-sync**: Files are automatically committed when changed (if enabled)
-- **Manual sync**: Use `Ctrl/Cmd + P` → `Loom: Manual sync now`
-- **Monitor status**: Check the status bar indicator for sync status
-- **View details**: Click the status bar to open the sync panel
+## ⚙️ Settings
 
-## ⚙️ Configuration
-
-### Repository Settings
-- **Remote URL**: Git repository URL (HTTPS or SSH)
-- **Branch**: Target branch for synchronization (default: main)
-- **Authentication**: Choose between SSH keys or HTTPS credentials
-
-### Sync Options
+### Repository Configuration
+- **Remote Repository URL**: Your Git repository URL
 - **Auto-sync**: Enable/disable automatic synchronization
-- **Commit message template**: Customize commit message format
-  - `{action}`: The type of change (Created, Updated, Deleted, Renamed)
-  - `{filename}`: The name of the changed file
-- **Debounce delay**: Time to wait before syncing after changes (100-5000ms)
-- **File exclusions**: Glob patterns for files to ignore
 
-### Advanced Options
-- **Git user configuration**: Set name and email for commits
-- **Auto-push**: Automatically push commits to remote
-- **Notifications**: Enable/disable toast notifications
-- **Custom .gitignore**: Additional patterns to exclude
+### Sync Behavior
+- **Debounce Delay**: Time to wait after file changes before syncing (100-2000ms)
+- **Show Notifications**: Enable/disable toast notifications
+- **File Exclusion Patterns**: Glob patterns for files to ignore (e.g., `*.tmp`, `.obsidian/workspace*`)
+
+### Commit Settings
+- **Commit Message Template**: Customize how commit messages are generated
+  - `{action}`: Type of change (Created, Updated, Deleted)
+  - `{filename}`: Name of the changed file
 
 ## 🔧 Commands
 
-Access these commands via the Command Palette (`Ctrl/Cmd + P`):
-
-- `Loom: Initialize Git repository` - Set up Git in your vault
-- `Loom: Manual sync now` - Force immediate synchronization
-- `Loom: Push to remote` - Push committed changes to remote
-- `Loom: Pull from remote` - Pull changes from remote repository
-- `Loom: View sync history` - Open the sync panel
+Available via Command Palette (`Ctrl/Cmd + P`):
 - `Loom: Toggle auto-sync` - Enable/disable automatic syncing
-- `Loom: Open settings` - Quick access to plugin settings
+- `Loom: Manual sync now` - Force immediate synchronization
+- `Loom: Open settings` - Access plugin configuration
 
 ## 📊 Status Indicators
 
-The status bar shows different indicators:
-
-- ✅ **Synced** - Everything is up to date
-- 🔄 **Syncing...** - Sync operation in progress
-- ❌ **Error** - Sync failed (click for details)
-- 📡 **Offline** - No remote configured or connection failed
+Status bar shows current sync state:
+- ✅ **Synced** - All changes are synchronized
+- 🔄 **Syncing...** - Sync operation in progress  
+- ❌ **Error** - Sync failed (check console for details)
+- ⚠️ **No Remote** - Repository URL not configured
 
 ## 🔧 Troubleshooting
 
 ### Common Issues
 
-**"Git is not installed or not in PATH"**
-- Install Git on your system
-- Ensure Git is accessible from command line
-- Restart Obsidian after installing Git
+**Plugin loaded but changes not syncing:**
+- Ensure Git is installed on your system and accessible from command line
+- Check that your repository URL is correct in settings
+- Verify that your vault directory has been initialized as a Git repository
 
-**"Authentication failed"**
-- For SSH: Set up SSH keys with your Git provider
-- For HTTPS: Use personal access tokens instead of passwords
-- Test connection in plugin settings
-
-**"Repository not initialized"**
-- Use `Loom: Initialize Git repository` command
-- Or manually run `git init` in your vault folder
-
-**Files not syncing**
-- Check file exclusion patterns in settings
-- Verify auto-sync is enabled
-- Look for error messages in the sync panel
-
-**Large vault performance**
-- Increase debounce delay to reduce commit frequency
-- Use file exclusion patterns to ignore unnecessary files
-- Consider using Git LFS for large binary files
-
-### Debug Information
-1. Open the sync panel to view recent commits and status
-2. Check browser developer console for error messages
-3. Verify Git repository status using external Git clients
-
-## 🛣️ Roadmap
-
-- [ ] Git LFS integration for large files
-- [ ] Conflict resolution interface
-- [ ] Multi-vault support
-- [ ] Scheduled sync options
-- [ ] Sync history visualization
-- [ ] Integration with Git hosting services (GitHub, GitLab)
-- [ ] Offline queue management
-- [ ] Custom hooks and workflows
+**Files not being tracked:**
+- Check your exclusion patterns in settings
+- Verify the files aren't already ignored by `.gitignore`
 
 ## 🤝 Contributing
 
-We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
-
-### Development Setup
-```bash
-# Clone the repository
-git clone https://github.com/username/loom-git-sync.git
-cd loom-git-sync
-
-# Install dependencies
-npm install
-
-# Build for development
-npm run dev
-
-# Build for production
-npm run build
-```
+Found a bug or want to contribute? Please open an issue or submit a pull request on GitHub.
 
 ## 📝 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- Built for the Obsidian community
-- Inspired by the need for lightweight, integrated version control
-- Thanks to all contributors and beta testers
-
-## 📞 Support
-
-- **GitHub Issues**: [Report bugs or request features](https://github.com/username/loom-git-sync/issues)
-- **Community Discord**: Join the Obsidian community Discord
-- **Documentation**: [Full documentation](https://github.com/username/loom-git-sync/wiki)
+MIT License - feel free to use and modify as needed.
 
 ---
 
-**Note**: This plugin replaces the standalone Loom Electron application (103MB) with a lightweight, native Obsidian integration. All core functionality is preserved while providing better integration with Obsidian's interface and workflow.
+**Note**: This plugin provides a lightweight alternative to standalone Git synchronization applications, integrating directly with Obsidian for seamless version control of your notes.
