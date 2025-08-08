@@ -28,7 +28,7 @@ A lightweight Obsidian plugin that automatically synchronizes your vault with Gi
 - **Sync preferences**: Enable/disable auto-sync, notifications, and file watching
 - **Debounce timing**: Adjust delay between file changes and sync operations
 
-## � Screenshots
+##  Screenshots
 
 ### Plugin Settings Panel
 ![Settings Panel](screenshots/Screenshot%202025-08-08%20053935.png)
